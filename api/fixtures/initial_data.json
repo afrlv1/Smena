@@ -1,0 +1,39 @@
+[
+  {
+    "model": "forfar.printer" ,
+    "pk": 1 ,
+    "fields": {
+      "name": "indigo_5" ,
+      "api_key": "apikey1" ,
+      "check_type": "client" ,
+      "point_id": 4
+    }
+  } ,
+  {
+    "model": "forfar.check" ,
+    "pk": 3 ,
+    "fields": {
+      "printer": 9 ,
+      "type": "client" ,
+      "order": {
+        "id": 123456 ,
+        "items": [
+          {
+            "name": "\u0412\u043a\u0443\u0441\u043d\u0430\u044f \u043f\u0438\u0446\u0446\u0430" ,
+            "quantity": 2 ,
+            "unit_price": 250
+          }
+        ] ,
+        "price": 780 ,
+        "client": {
+          "name": "\u0418\u0432\u0430\u043d" ,
+          "phone": 9177766706
+        } ,
+        "address": "\u0433. \u0423\u0444\u0430, \u0443\u043b. \u041b\u0435\u043d\u0438\u043d\u0430, \u0434. 42" ,
+        "point_id": 3
+      } ,
+      "status": "new" ,
+      "pdf_file": ""
+    }
+  }
+]
