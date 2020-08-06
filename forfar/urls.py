@@ -3,9 +3,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r"^", include("api.urls")),
-]
-# For django_rq
-urlpatterns += [
-    url(r'^django-rq/', include('django_rq.urls')),
+    url(r'^api/checks/', include('checks.urls', namespace='checks')),
+    url(r'^django-rq/', include('django_rq.urls'))
 ]

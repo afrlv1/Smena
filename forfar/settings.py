@@ -3,23 +3,27 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'xsih_y(&2%q081_a0tcg=*to*sws+zt9t9m$^$kyk%x!*87wp@'
+# Quick-start development settings - unsuitable for production
+SECRET_KEY = 'p&l%385148kslhtyn^##a1)ilz@4zqj=rq&agdol^##zgl9(vs'
 
+# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
+# Application definition
 
 INSTALLED_APPS = [
-    "api.apps.ApiConfig",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "django_rq",
+    'rest_framework',
+    'drf_yasg',
+    'django_rq',
+    'checks',
 ]
 
 MIDDLEWARE = [
@@ -31,6 +35,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+SWAGGER_SETTINGS = {
+    'DEFAULT_AUTO_SCHEMA_CLASS': 'drf_yasg_examples.SwaggerAutoSchema',
+}
 
 ROOT_URLCONF = 'forfar.urls'
 
@@ -52,40 +59,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'forfar.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'test',
-        'USER': 'user',
-        'HOST': 'localhost',
-        'PORT': 8001,
-        'PASSWORD': "password123"
-    }
-}
-
-#for django_rq
-RQ_QUEUES = {
-    'default': {
-        'HOST': 'localhost',
-        'PORT': 8379,
-        'DB': 0,
-        'DEFAULT_TIMEOUT': 500,
-    },
-}
-
-# RQ_SHOW_ADMIN_LINK = True
-RQ_API_TOKEN = "token"
 
 
 # Password validation
@@ -110,7 +83,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 
 TIME_ZONE = 'UTC'
 

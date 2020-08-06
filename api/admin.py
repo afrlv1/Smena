@@ -2,15 +2,13 @@ from django.contrib import admin
 from .models import Printer, Check
 
 
+@admin.register(Printer)
 class PrinterAdmin(admin.ModelAdmin):
-    list_display = ("name", "api_key", "check_type", "point_id")
-    list_filter = ["check_type"]
+    fields = ['name', 'check_type']
+    ordering = ['name', 'check_type']
 
 
+@admin.register(Check)
 class CheckAdmin(admin.ModelAdmin):
-    list_display = ("printer_id", "type", "order", "status")
-    list_filter = ["printer_id", "type", "status"]
-
-
-admin.site.register(Printer, PrinterAdmin)
-admin.site.register(Check, CheckAdmin)
+    fields = ['printer', 'check_type', 'status']
+    ordering = ['printer', 'check_type', 'status']
